@@ -2,11 +2,22 @@ from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.responses import StreamingResponse
 import pandas as pd
 from io import BytesIO
-
+from fastapi import FastAPI, UploadFile, File, HTTPException
 from procesar_pdf import procesar_pdf
 from unir_archivos import conciliar_movimientos
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+origins = [
+    "https://avanzabi.online"
+]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.post("/conciliacion-unificada/")
 async def conciliacion_unificada(
