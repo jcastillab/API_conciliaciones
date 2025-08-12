@@ -5,5 +5,4 @@ openpyxl
 pdfplumber
 camelot-py
 python-multipart
-io
 re
