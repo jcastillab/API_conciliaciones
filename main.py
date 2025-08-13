@@ -8,9 +8,7 @@ from unir_archivos import conciliar_movimientos
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
-origins = [
-    "https://avanzabi.online"
-]
+origins = ["*"]
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
